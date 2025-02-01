@@ -1,0 +1,121 @@
+.footer-container {
+  display: flex;
+  justify-content: space-between;
+  background-color:  #151515;
+  color: rgb(255, 255, 255);
+  padding: 40px;
+  flex-wrap: wrap;
+font-weight: bold;
+  font-family: "Dancing Script", cursive;
+border-radius: 5px;
+}
+
+.footer-section {
+  width: 22%;
+}
+.footer-section h3{
+  font-size: 30px;
+  color:  #b2deff;
+}
+.logo {
+  font-size: 40px;
+  color: #b2deff;
+  font-weight: bold;
+
+}
+.footer-section p{
+  font-size: 18px;
+}
+.footer-section a{
+  list-style: none;
+  text-decoration: none;
+  color: #e68900;
+}
+
+.footer-section h3, .footer-section h1 {
+  margin-bottom: 10px;
+}
+
+.footer-section ul {
+  list-style: none;
+  padding: 0;
+}
+
+
+
+.footer-section ul li a {
+  color: white;
+  text-decoration: none;
+}
+
+/* .follow-us{
+  margin: 20px;
+  padding: 20px;
+} */
+.social-links {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  /* align-items: flex-start;  */
+}
+
+.social-links a {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: bold;
+  transition: color 0.3s ease-in-out;
+}
+
+.social-links a:hover {
+  color:  #e68900;;
+}
+.menue2 :hover {
+  color: #e68900;;
+}
+.social-links img {
+  width: 22px;
+  height: 22px;
+  margin-right: 8px;
+  display: inline-block;
+  border-radius: 50%;
+  justify-content: center;
+}
+
+.subscribe-form {
+  display: flex;
+  margin: 10px;
+}
+
+.subscribe-form input {
+  width: 75%;
+  padding: 12px;
+  border: none;
+  border-radius: 15px;
+
+}
+
+.subscribe-form button {
+  width: 25%;
+  background-color:  #b2deff;
+  border: none;
+  padding: 8px;
+  border-radius: 15px;
+  cursor: pointer;
+margin-left: 5px;
+}
+
+
+
+.privacy-text {
+  font-size: 15px;
+  margin-top: 8px;
+  color: #e68900;;
+}
+
+
+.footer-section h1{
+  color:  #b2deff;
+}
