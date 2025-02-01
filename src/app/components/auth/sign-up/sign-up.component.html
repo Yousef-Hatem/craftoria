@@ -1,0 +1,53 @@
+<section
+  appAnimations
+  animationClass="animate__fadeInLeft"
+  animationDuration=".5s"
+>
+  <h2>Create your account</h2>
+  <p>Have an account? <a routerLink="/auth/login">Log in now</a></p>
+  <form>
+    <div>
+      <mat-form-field hideRequiredMarker>
+        <mat-label>Full Name</mat-label>
+        <input matInput required placeholder="Enter your full name" />
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-form-field hideRequiredMarker>
+        <mat-label>Email Address</mat-label>
+        <input matInput required placeholder="Enter your email" />
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-form-field hideRequiredMarker>
+        <mat-label>Phone Number</mat-label>
+        <input matInput required placeholder="Enter your phone number" />
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-form-field hideRequiredMarker>
+        <mat-label>Password</mat-label>
+        <input
+          matInput
+          type="password"
+          required
+          placeholder="Enter your password"
+        />
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-form-field hideRequiredMarker>
+        <mat-label>Confirm password</mat-label>
+        <input
+          matInput
+          type="password"
+          required
+          placeholder="Re-enter your password"
+        />
+      </mat-form-field>
+    </div>
+    <div>
+      <button mat-flat-button routerLink="/auth/verify-email">Sign up</button>
+    </div>
+  </form>
+</section>
