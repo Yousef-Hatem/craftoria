@@ -1,0 +1,335 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+
+<section class="bg-color">
+  <div class="containers">
+    <div class="title">
+      <p>The best seller of <span class="ti">Craftoria</span></p>
+      <h1><span>Best</span>seller</h1>
+    </div>
+
+<button class="filter-toggle" (click)="toggleFilter()">☰ Filter</button>
+
+
+<aside class="filter-sidebar" [class.active]="isFilterOpen">
+  <button class="close-filter" (click)="toggleFilter()">✖</button>
+  <h3>Filter by</h3>
+
+  
+  <div class="filter-container">
+    <label for="priceRange">Price: <span>{{ price }}$</span></label>
+    <input type="range" id="priceRange" min="0" max="300" [value]="price" (input)="updatePrice($event)">
+  </div>
+  
+
+  
+  <div class="filter-section">
+    <h4>Category</h4>
+    <label><input type="checkbox" value="electronics"> Hats</label>
+    <label><input type="checkbox" value="fashion"> Fashion</label>
+    <label><input type="checkbox" value="home"> Jewelery</label>
+  </div>
+</aside>
+
+
+    <div class="row">
+
+
+      <div class="col-md-3">
+          <div class="card">
+              <div class="card-main">
+                <div class="discount">-9%</div>
+                <div class="label label-green">pre-order</div>
+                <div class="product-container">
+                  <div class="p" (mouseover)="changeImage1($event)" (mouseleave)="resetImage()"><img src="images/pexels-kenzero14-5157291 (1).jpg" alt="product"></div>
+                  <div class="p" (mouseover)="changeImage1($event)" (mouseleave)="resetImage()"><img src="images/pexels-vennzi-3634366.jpg" alt="product"></div>
+                  <div class="p" (mouseover)="changeImage1($event)" (mouseleave)="resetImage()"><img src="images/pexels-tima-miroshnichenko-6263113.jpg" alt="product"></div>
+                </div>
+              <div class="image">
+                <img [src]="url1" alt="image">
+              </div>
+              <div class="cart-line"></div>
+              <div class="cart-item">
+                <ul>
+                  <li><a href=""><i class="fa fa-shopping-basket"></i></a></li>
+                  <li><a href=""><i class="fa-regular fa-heart"></i></a></li>
+                  <li><a href=""><i class="fa fa-search"></i></a></li>
+                </ul>
+              </div>
+              </div>
+              <div class="content">
+                <a href="">Bracelets</a>
+                <div class="rating">
+                  <i class="fa-regular fa-star"></i>
+                  <i class="fa-regular fa-star"></i>
+                  <i class="fa-regular fa-star"></i>
+                  <i class="fa-regular fa-star"></i>
+                  <i class="fa-regular fa-star"></i>
+                </div>
+                <p><span class="money">$81.00</span><span class="old-price">$90.00</span></p>
+              </div>
+          </div>
+      </div>
+
+
+      <div class="col-md-3">
+        <div class="card">
+            <div class="card-main">
+              <div class="discount">-10%</div>
+            <div class="label label-green">pre-order</div>
+            <div class="product-container">
+                <div class="p" (mouseover)="changeImage2($event)" (mouseleave)="resetImage2()"><img src="" alt="product"></div>
+                <div class="p" (mouseover)="changeImage2($event)" (mouseleave)="resetImage2()"><img src="/public/images/box1-1.jpg" alt="product"></div>
+                <div class="p" (mouseover)="changeImage2($event)" (mouseleave)="resetImage2()"><img src="" alt="product"></div>
+            </div>
+            <div class="image">
+              <img src="{{url2}}" alt="image">
+            </div>
+            <div class="cart-line"></div>
+            <div class="cart-item">
+              <ul>
+                <li><a href=""><i class="fa fa-shopping-basket"></i></a></li>
+                <li><a href=""><i class="fa-regular fa-heart"></i></a></li>
+                <li><a href=""><i class="fa fa-search"></i></a></li>
+              </ul>
+            </div>
+            </div>
+            <div class="content">
+              <a href="">Bracelets</a>
+              <div class="rating">
+                <i class="fa-regular fa-star"></i>
+                <i class="fa-regular fa-star"></i>
+                <i class="fa-regular fa-star"></i>
+                <i class="fa-regular fa-star"></i>
+                <i class="fa-regular fa-star"></i>
+              </div>
+              <p><span class="money">$100</span><span class="old-price">$120</span></p>
+            </div>
+        </div>
+     </div>
+
+
+     <div class="col-md-3">
+      <div class="card">
+          <div class="card-main">
+            <div class="discount">-12%</div>
+          <div class="label label-green">pre-order</div>
+          <div class="product-container">
+              <div class="p" (mouseover)="changeImage3($event)" (mouseleave)="resetImage3()"><img src="" alt="product"></div>
+              <div class="p" (mouseover)="changeImage3($event)" (mouseleave)="resetImage3()"><img src="/public/images/box1-1.jpg" alt="product"></div>
+              <div class="p" (mouseover)="changeImage3($event)" (mouseleave)="resetImage3()"><img src="" alt="product"></div>
+          </div>
+          <div class="image">
+            <img src="{{url3}}" alt="image">
+          </div>
+          <div class="cart-line"></div>
+          <div class="cart-item">
+            <ul>
+              <li><a href=""><i class="fa fa-shopping-basket"></i></a></li>
+              <li><a href=""><i class="fa-regular fa-heart"></i></a></li>
+              <li><a href=""><i class="fa fa-search"></i></a></li>
+            </ul>
+          </div>
+          </div>
+          <div class="content">
+            <a href="">Bracelets</a>
+            <div class="rating">
+              <i class="fa-regular fa-star"></i>
+              <i class="fa-regular fa-star"></i>
+              <i class="fa-regular fa-star"></i>
+              <i class="fa-regular fa-star"></i>
+              <i class="fa-regular fa-star"></i>
+            </div>
+            <p><span class="money">$88.00</span><span class="old-price">$100</span></p>
+          </div>
+      </div>
+     </div>
+
+
+     <div class="col-md-3">
+    <div class="card">
+        <div class="card-main">
+          <div class="discount">-5%</div>
+        <div class="label label-green">pre-order</div>
+        <div class="product-container">
+            <div class="p" (mouseover)="changeImage4($event)" (mouseleave)="resetImage4()"><img src="" alt="product"></div>
+            <div class="p" (mouseover)="changeImage4($event)" (mouseleave)="resetImage4()"><img src="/public/images/box1-1.jpg" alt="product"></div>
+            <div class="p" (mouseover)="changeImage4($event)" (mouseleave)="resetImage4()"><img src="" alt="product"></div>
+        </div>
+        <div class="image">
+          <img src="{{url4}}" alt="image">
+        </div>
+        <div class="cart-line"></div>
+        <div class="cart-item">
+          <ul>
+            <li><a href=""><i class="fa fa-shopping-basket"></i></a></li>
+            <li><a href=""><i class="fa-regular fa-heart"></i></a></li>
+            <li><a href=""><i class="fa fa-search"></i></a></li>
+          </ul>
+        </div>
+        </div>
+        <div class="content">
+          <a href="">Bracelets</a>
+          <div class="rating">
+            <i class="fa-regular fa-star"></i>
+            <i class="fa-regular fa-star"></i>
+            <i class="fa-regular fa-star"></i>
+            <i class="fa-regular fa-star"></i>
+            <i class="fa-regular fa-star"></i>
+          </div>
+          <p><span class="money">$50.00</span><span class="old-price">$70.00</span></p>
+        </div>
+    </div>
+     </div>
+
+
+     <div class="col-md-3">
+      <div class="card">
+          <div class="card-main">
+            <div class="discount">-8%</div>
+          <div class="label label-green">pre-order</div>
+          <div class="product-container">
+              <div class="p" (mouseover)="changeImage5($event)" (mouseleave)="resetImage5()"><img src="" alt="product"></div>
+              <div class="p" (mouseover)="changeImage5($event)" (mouseleave)="resetImage5()"><img src="/public/images/box1-1.jpg" alt="product"></div>
+              <div class="p" (mouseover)="changeImage5($event)" (mouseleave)="resetImage5()"><img src="" alt="product"></div>
+          </div>
+          <div class="image">
+            <img src="{{url5}}" alt="image">
+          </div>
+          <div class="cart-line"></div>
+          <div class="cart-item">
+            <ul>
+              <li><a href=""><i class="fa fa-shopping-basket"></i></a></li>
+              <li><a href=""><i class="fa-regular fa-heart"></i></a></li>
+              <li><a href=""><i class="fa fa-search"></i></a></li>
+            </ul>
+          </div>
+          </div>
+          <div class="content">
+            <a href="">Bracelets</a>
+            <div class="rating">
+              <i class="fa-regular fa-star"></i>
+              <i class="fa-regular fa-star"></i>
+              <i class="fa-regular fa-star"></i>
+              <i class="fa-regular fa-star"></i>
+              <i class="fa-regular fa-star"></i>
+            </div>
+            <p><span class="money">$75.00</span><span class="old-price">$80.00</span></p>
+          </div>
+      </div>
+      </div>
+
+     <div class="col-md-3">
+        <div class="card">
+            <div class="card-main">
+              <div class="discount">-15%</div>
+            <div class="label label-green">pre-order</div>
+            <div class="product-container">
+                <div class="p" (mouseover)="changeImage6($event)" (mouseleave)="resetImage6()"><img src="" alt="product"></div>
+                <div class="p" (mouseover)="changeImage6($event)" (mouseleave)="resetImage6()"><img src="/public/images/box1-1.jpg" alt="product"></div>
+                <div class="p" (mouseover)="changeImage6($event)" (mouseleave)="resetImage6()"><img src="" alt="product"></div>
+            </div>
+            <div class="image">
+              <img src="{{url6}}" alt="image">
+            </div>
+            <div class="cart-line"></div>
+            <div class="cart-item">
+              <ul>
+                <li><a href=""><i class="fa fa-shopping-basket"></i></a></li>
+                <li><a href=""><i class="fa-regular fa-heart"></i></a></li>
+                <li><a href=""><i class="fa fa-search"></i></a></li>
+              </ul>
+            </div>
+            </div>
+            <div class="content">
+              <a href="">Tiara</a>
+              <div class="rating">
+                <i class="fa-regular fa-star"></i>
+                <i class="fa-regular fa-star"></i>
+                <i class="fa-regular fa-star"></i>
+                <i class="fa-regular fa-star"></i>
+                <i class="fa-regular fa-star"></i>
+              </div>
+              <p><span class="money">$81.00</span><span class="old-price">$80.00</span></p>
+            </div>
+        </div>
+      </div>
+
+
+     <div class="col-md-3">
+          <div class="card">
+              <div class="card-main">
+                <div class="discount">-20%</div>
+              <div class="label label-green">pre-order</div>
+              <div class="product-container">
+                  <div class="p" (mouseover)="changeImage7($event)" (mouseleave)="resetImage7()"><img src="" alt="product"></div>
+                  <div class="p" (mouseover)="changeImage7($event)" (mouseleave)="resetImage7()"><img src="/public/images/box1-1.jpg" alt="product"></div>
+                  <div class="p" (mouseover)="changeImage7($event)" (mouseleave)="resetImage7()"><img src="" alt="product"></div>
+              </div>
+              <div class="image">
+                <img src="{{url7}}" alt="image">
+              </div>
+              <div class="cart-line"></div>
+              <div class="cart-item">
+                <ul>
+                  <li><a href=""><i class="fa fa-shopping-basket"></i></a></li>
+                  <li><a href=""><i class="fa-regular fa-heart"></i></a></li>
+                  <li><a href=""><i class="fa fa-search"></i></a></li>
+                </ul>
+              </div>
+              </div>
+              <div class="content">
+                <a href="">Hair Pins</a>
+                <div class="rating">
+                  <i class="fa-regular fa-star"></i>
+                  <i class="fa-regular fa-star"></i>
+                  <i class="fa-regular fa-star"></i>
+                  <i class="fa-regular fa-star"></i>
+                  <i class="fa-regular fa-star"></i>
+                </div>
+                <p><span class="money">$85.00</span><span class="old-price">$90.00</span></p>
+              </div>
+          </div>
+      </div>
+
+
+      <div class="col-md-3">
+            <div class="card">
+                <div class="card-main">
+                  <div class="discount">-16%</div>
+                <div class="label label-green">pre-order</div>
+                <div class="product-container">
+                    <div class="p" (mouseover)="changeImage8($event)" (mouseleave)="resetImage8()"><img src="" alt="product"></div>
+                    <div class="p" (mouseover)="changeImage8($event)" (mouseleave)="resetImage8()"><img src="/public/images/box1-1.jpg" alt="product"></div>
+                    <div class="p" (mouseover)="changeImage8($event)" (mouseleave)="resetImage8()"><img src="" alt="product"></div>
+                </div>
+                <div class="image">
+                  <img src="{{url8}}" alt="image">
+                </div>
+                <div class="cart-line"></div>
+                <div class="cart-item">
+                  <ul>
+                    <li><a href=""><i class="fa fa-shopping-basket"></i></a></li>
+                    <li><a href=""><i class="fa-regular fa-heart"></i></a></li>
+                    <li><a href=""><i class="fa fa-search"></i></a></li>
+                  </ul>
+                </div>
+                </div>
+                <div class="content">
+                  <a href="">Anklet </a>
+                  <div class="rating">
+                    <i class="fa-regular fa-star"></i>
+                    <i class="fa-regular fa-star"></i>
+                    <i class="fa-regular fa-star"></i>
+                    <i class="fa-regular fa-star"></i>
+                    <i class="fa-regular fa-star"></i>
+                  </div>
+                  <p><span class="money">$90.00</span><span class="old-price">$100.00</span></p>
+                </div>
+            </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
