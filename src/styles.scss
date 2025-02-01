@@ -32,3 +32,30 @@ body {
 body {
   font-family: Roboto, "Helvetica Neue", sans-serif;
 }
+
+app-auth-layout {
+  h2 {
+    color: var(--mat-sys-primary);
+  }
+  p {
+    margin-top: 10px;
+    font-weight: bold;
+    a {
+      color: var(--mat-sys-primary);
+      text-decoration: none;
+    }
+  }
+  form {
+    margin-top: 40px;
+    div {
+      mat-form-field {
+        width: 100%;
+      }
+      button {
+        height: 45px;
+        font-size: 1.05rem;
+        width: 100%;
+      }
+    }
+  }
+}
