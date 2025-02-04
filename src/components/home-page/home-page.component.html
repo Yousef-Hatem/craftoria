@@ -1,0 +1,52 @@
+<div class="home-container">
+  <div class="first-section">
+    <!-- Hero Section -->
+    <div class="hero-section">
+      <div class="hero-content">
+        <h1>Shop Now And Find Your Handemade</h1>
+        <h4>Find gifts that ship in 3 days or less.</h4>
+        <button
+          (mouseover)="hoverButton = true"
+          (mouseleave)="hoverButton = false"
+        >
+          Shop now <span class="arrow" [class.rotate]="hoverButton">→</span>
+        </button>
+
+        <p>
+          *Orders processed in up to 3 business days.
+        </p>
+      </div>
+      <div class="first-sec-image">
+        <img
+          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSPHAloBov-1HHCEQ17rIIO1F3mbzYIIs2TTQ&s"
+          alt="Gift Image"
+          class="hero-image"
+        />
+      </div>
+    </div>
+
+    <!-- Side Card -->
+    <div class="side-card">
+      <div class="side-content">
+        <h1>Explore  Now! </h1>
+        <button
+          (mouseover)="hoverButton = true"
+          (mouseleave)="hoverButton = false"
+          class="side-button"
+        >
+          Shop now <span class="arrow" [class.rotate]="hoverButton">→</span>
+        </button>
+      </div>
+    </div>
+  </div>
+  <!-- Products Section -->
+  <div class="products-section">
+    <h2>Thoughtful Valentine's Day gifts for every love in your life!</h2>
+    <div class="products-grid">
+      <div class="product-card" *ngFor="let product of products">
+        <img [src]="product.image" [alt]="product.name" />
+        <p>{{ product.name }}</p>
+      </div>
+    </div>
+  </div>
+</div>

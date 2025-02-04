@@ -1,0 +1,45 @@
+
+<section class="collection">
+  <div class="collection-header">
+    <h1 class="section-title">Discounts</h1>
+    <button
+      mat-raised-button
+      class="open-store-btn"
+      (click)="navigateTo('/shop')">
+      <mat-icon class="cart-icon">shopping_cart</mat-icon> Open Store
+    </button>
+  </div>
+
+  <div class="cards-container">
+
+    <div
+
+      class="card "
+      *ngFor="let product of products; let i = index"
+      [ngClass]="{ 'large-card': i === 0 }">
+      <div *ngIf="i === 0" class="discount-badge">50% Discount</div>
+      <div *ngIf="i === 1" class="discount-badge">10% Discount</div>
+      <div *ngIf="i === 2" class="discount-badge">30% Discount</div>
+      <div *ngIf="i === 3" class="discount-badge">20% Discount</div>
+
+
+
+      <img [src]="product.image" [alt]="product.name" class="product-image" />
+      <div class="card-content">
+        <h3 class="product-name">{{ product.name }}</h3>
+        <p class="product-description">{{ product.description }}</p>
+        <div class="price-cart">
+          <span class="price">{{ product.price }}</span>
+          <button class="cart-btn">
+            <mat-icon>shopping_cart</mat-icon>
+          </button>
+        </div>
+      </div>
+      <button class="favorite-btn" (click)="toggleFavorite(product)">
+        <mat-icon [ngStyle]="{ color: product.isFavorite ? 'red' : '#bbb' }">
+          {{ product.isFavorite ? "favorite" : "favorite_border" }}
+        </mat-icon>
+      </button>
+    </div>
+  </div>
+</section>
