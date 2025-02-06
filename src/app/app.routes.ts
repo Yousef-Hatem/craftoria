@@ -2,8 +2,14 @@ import { Routes } from '@angular/router';
 import { LoginComponent } from './components/auth/login/login.component';
 import { SignUpComponent } from './components/auth/sign-up/sign-up.component';
 import { VerifyEmailComponent } from './components/auth/verify-email/verify-email.component';
+import { AccountComponent } from './components/account/account.component';
 
 export const routes: Routes = [
+  {
+    path: '',
+    redirectTo: 'auth/login',
+    pathMatch: 'full',
+  },
   {
     path: 'auth/login',
     component: LoginComponent,
@@ -15,5 +21,9 @@ export const routes: Routes = [
   {
     path: 'auth/verify-email',
     component: VerifyEmailComponent,
+  },
+  {
+    path: 'account',
+    component: AccountComponent,
   },
 ];

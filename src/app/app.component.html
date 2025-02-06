@@ -1,3 +1,7 @@
-<app-auth-layout>
+@if (authLayout) {
+  <app-auth-layout>
+    <router-outlet />
+  </app-auth-layout>
+} @else {
   <router-outlet />
-</app-auth-layout>
+}
