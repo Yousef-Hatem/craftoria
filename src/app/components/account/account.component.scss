@@ -64,6 +64,23 @@ section {
         mat-form-field {
           width: 100%;
         }
+        #email {
+          button,
+          mat-hint {
+            display: none;
+          }
+          &.hint {
+            button,
+            mat-hint {
+              display: block;
+            }
+            mat-hint {
+              color: rgb(223, 168, 67);
+              margin-bottom: 20px;
+            }
+            margin-bottom: 10px;
+          }
+        }
       }
     }
   }
