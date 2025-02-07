@@ -30,7 +30,6 @@ body {
   height: 100%;
 }
 body {
-  font-family: Roboto, "Helvetica Neue", sans-serif;
   font-family:
     "Graphik Webfont",
     -apple-system,
@@ -64,6 +63,9 @@ app-auth-layout {
         font-size: 1.05rem;
         width: 100%;
       }
+    }
+    mat-error {
+      margin-bottom: 15px;
     }
   }
 }
