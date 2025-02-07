@@ -5,23 +5,35 @@
 >
   <h2>Create your account</h2>
   <p>Have an account? <a routerLink="/auth/login">Log in now</a></p>
-  <form>
+  <form [formGroup]="form" (submit)="signUp()">
     <div>
       <mat-form-field hideRequiredMarker appearance="outline">
         <mat-label>Full Name</mat-label>
-        <input matInput required placeholder="Enter your full name" />
+        <input
+          matInput
+          formControlName="name"
+          placeholder="Enter your full name"
+        />
       </mat-form-field>
     </div>
     <div>
       <mat-form-field hideRequiredMarker appearance="outline">
         <mat-label>Email Address</mat-label>
-        <input matInput required placeholder="Enter your email" />
+        <input
+          matInput
+          formControlName="email"
+          placeholder="Enter your email"
+        />
       </mat-form-field>
     </div>
     <div>
       <mat-form-field hideRequiredMarker appearance="outline">
         <mat-label>Phone Number</mat-label>
-        <input matInput required placeholder="Enter your phone number" />
+        <input
+          matInput
+          formControlName="phone"
+          placeholder="Enter your phone number"
+        />
       </mat-form-field>
     </div>
     <div>
@@ -30,7 +42,7 @@
         <input
           matInput
           type="password"
-          required
+          formControlName="password"
           placeholder="Enter your password"
         />
       </mat-form-field>
@@ -41,13 +53,22 @@
         <input
           matInput
           type="password"
-          required
+          formControlName="passwordConfirm"
           placeholder="Re-enter your password"
         />
       </mat-form-field>
     </div>
+    @if (errorMsg && !loading) {
+      <mat-error>{{ errorMsg }}</mat-error>
+    }
     <div>
-      <button mat-flat-button routerLink="/auth/verify-email">Sign up</button>
+      <button mat-flat-button [disabled]="loading">
+        @if (loading) {
+          <mat-spinner diameter="25"></mat-spinner>
+        } @else {
+          Sign up
+        }
+      </button>
     </div>
   </form>
 </section>
