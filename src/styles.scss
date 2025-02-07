@@ -64,8 +64,9 @@ app-auth-layout {
         width: 100%;
       }
     }
-    mat-error {
-      margin-bottom: 15px;
-    }
   }
+}
+
+mat-error {
+  margin-bottom: 15px;
 }
