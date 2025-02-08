@@ -1,0 +1,24 @@
+<div class="trending-container">
+  <div class="trending-header">
+    <h2 class="trending-title">TRENDING THIS WEEK</h2>
+  </div>
+
+  <div class="cards-container" #cardContainer>
+    <div class="product-card" *ngFor="let product of products">
+      <div class="product-image">
+        <img [src]="product.image" alt="product" />
+        <mat-icon class="icon">favorite_border</mat-icon>
+      </div>
+      <div class="product-info">
+        <h3 class="product-name">{{ product.name }}</h3>
+        <p class="product-price">${{ product.price }}</p>
+        <button class="shop-now-btn">Shop Now <span>&#8594;</span></button>
+      </div>
+    </div>
+  </div>
+
+  <div class="trending-arrows" >
+    <button (click)="moveSlide(-2)" class="arrow-btn">&#8592;</button>
+    <button (click)="moveSlide(2)" class="arrow-btn">&#8594;</button>
+  </div>
+</div>

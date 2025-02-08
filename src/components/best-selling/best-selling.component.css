@@ -1,0 +1,177 @@
+.best-selling-collections {
+  text-align: center;
+  padding: 40px 20px;
+  background-color: #f1f4f8;
+  overflow: hidden;
+}
+
+.section-title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  font-size: 70px;
+  font-family: "Dancing Script", cursive;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 70px;
+  text-align: left;
+  margin-right: 20px;
+  margin-top: -10px;
+}
+
+.zigzag-cards-container:hover {
+  animation-play-state: paused;
+}
+
+.zigzag-cards-container {
+  display: flex;
+  justify-content: flex-start;
+  gap: 40px;
+  width: max-content;
+  animation: loop 40s infinite linear;
+}
+
+.card {
+  width: 300px;
+  height: 350px;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  position: relative;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.card:hover {
+  transform: translateY(-5px) scale(1.05);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+}
+
+.product-image {
+  width: 100%;
+  height: 60%;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  overflow: hidden;
+}
+
+.product-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.product-details {
+  padding: 10px;
+  text-align: center;
+}
+
+.product-name {
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: #333;
+}
+
+.product-price {
+  color: #333;
+  font-size: 1rem;
+  margin-top: 10px;
+}
+
+.product-description {
+  font-size: 0.9rem;
+  color: #666;
+  margin-top: 10px;
+  white-space: normal;
+  word-wrap: break-word;
+  word-break: break-word;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.shop-now-btn {
+  background-color: #3999e3;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 1rem;
+  border-radius: 15px;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: background-color 0.3s ease;
+}
+
+.shop-now-btn:hover {
+  background-color: #7ac2fa;
+}
+
+.odd-card {
+  transform: translateY(20px);
+  transition: transform 0.5s ease-out;
+}
+
+.even-card {
+  transform: translateY(-20px);
+  transition: transform 0.5s ease-out;
+}
+
+/* تحريك الكاردات بشكل دائري مستمر */
+@keyframes loop {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-70%);
+  } /* تغيير قيمة translateX لتكرار الحركات بشكل سلس */
+}
+
+.discount-badge {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background: rgb(245, 72, 72);
+  color: white;
+  padding: 8px 15px;
+  font-size: 14px;
+  font-weight: bold;
+  border-radius: 5px;
+}
+.product-image {
+  position: relative; /* لضبط العنصر بداخله */
+}
+
+
+
+@media screen and (max-width: 767px) {
+  .section-title {
+
+
+    font-size: 40px;
+  }
+
+
+.card {
+  width: 200px;
+  height: 300px;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  position: relative;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.product-image {
+  width: 100%;
+  height: 80%;
+
+}
+
+}

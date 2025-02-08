@@ -1,0 +1,23 @@
+<div class="best-selling-collections">
+  <h2 class="section-title">Best Selling Collections</h2>
+
+  <div class="zigzag-cards-container">
+    <div class="card" *ngFor="let product of products; let i = index"
+         [ngClass]="{'odd-card': i % 4 !== 0, 'even-card': i % 2 === 0}">
+
+      <div class="product-image">
+        <h1 *ngIf="i % 2 === 0" class="discount-badge">Discount: 20%</h1>
+        <h1 *ngIf="i % 4 === 2" class="discount-badge">Discount: 40%</h1>
+        <h1 *ngIf="i % 6 === 5" class="discount-badge">Discount: 10%</h1>
+        <img [src]="product.image" alt="product" />
+      </div>
+
+      <div class="product-details">
+        <h3 class="product-name">{{ product.name }}</h3>
+        <p class="product-price">${{ product.price }}</p>
+        <p class="product-description">{{ product.description }}</p>
+        <button class="shop-now-btn">Shop Now</button>
+      </div>
+    </div>
+  </div>
+</div>
