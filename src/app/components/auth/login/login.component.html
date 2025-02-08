@@ -5,26 +5,39 @@
 >
   <h2>Log in to your account</h2>
   <p>Don't have an account? <a routerLink="/auth/sign-up">Sign Up</a></p>
-  <form>
+  <form [formGroup]="form" (submit)="login()">
     <div>
-      <mat-form-field hideRequiredMarker>
+      <mat-form-field hideRequiredMarker appearance="outline">
         <mat-label>Email Address</mat-label>
-        <input matInput placeholder="Enter your email" required />
+        <input
+          matInput
+          placeholder="Enter your email"
+          formControlName="email"
+        />
       </mat-form-field>
     </div>
     <div>
-      <mat-form-field hideRequiredMarker>
+      <mat-form-field hideRequiredMarker appearance="outline">
         <mat-label>Password</mat-label>
         <input
           matInput
           placeholder="Enter your password"
           type="password"
-          required
+          formControlName="password"
         />
       </mat-form-field>
     </div>
+    @if (errorMsg && !loading) {
+      <mat-error>Email or password is incorrect</mat-error>
+    }
     <div>
-      <button mat-flat-button>Log in</button>
+      <button mat-flat-button [disabled]="loading">
+        @if (loading) {
+          <mat-spinner diameter="25"></mat-spinner>
+        } @else {
+          Log in
+        }
+      </button>
     </div>
   </form>
 </section>

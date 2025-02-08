@@ -7,7 +7,7 @@ html {
     (
       color: (
         theme-type: light,
-        primary: mat.$spring-green-palette,
+        primary: mat.$azure-palette,
         tertiary: mat.$blue-palette,
       ),
       typography: Roboto,
@@ -30,7 +30,14 @@ body {
   height: 100%;
 }
 body {
-  font-family: Roboto, "Helvetica Neue", sans-serif;
+  font-family:
+    "Graphik Webfont",
+    -apple-system,
+    "Helvetica Neue",
+    "Droid Sans",
+    Arial,
+    "sans-serif";
+  background: #f9f9f9;
 }
 
 app-auth-layout {
@@ -58,4 +65,8 @@ app-auth-layout {
       }
     }
   }
+}
+
+mat-error {
+  margin-bottom: 15px;
 }

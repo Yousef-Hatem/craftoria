@@ -1,0 +1,161 @@
+<section>
+  <div class="user">
+    <div class="start">
+      <div class="image">
+        <img src="images/profile-image.jpg" alt />
+      </div>
+      <div class="content">
+        <h2>{{ username }}</h2>
+        <p>{{ userEmail }}</p>
+      </div>
+    </div>
+    <div class="end">
+      <button mat-stroked-button>Change profile picture</button>
+    </div>
+  </div>
+  <div class="containers">
+    <div class="container">
+      <div class="header">
+        <div class="icon">
+          <mat-icon fontSet="material-icons-outlined">person</mat-icon>
+        </div>
+        <h2>Personal information</h2>
+      </div>
+      <form [formGroup]="updateUserForm" (submit)="updateUserData()">
+        <div>
+          <mat-form-field hideRequiredMarker appearance="outline">
+            <mat-label>Full Name</mat-label>
+            <input
+              matInput
+              formControlName="name"
+              placeholder="Enter your full name"
+            />
+          </mat-form-field>
+        </div>
+        <div>
+          <mat-form-field
+            hideRequiredMarker
+            appearance="outline"
+            id="email"
+            [class]="{ hint: user ? !user.verified : false }"
+          >
+            <mat-label>Email Address</mat-label>
+            <input
+              matInput
+              formControlName="email"
+              placeholder="Enter your email"
+            />
+            <button matSuffix mat-button routerLink="/auth/verify-email">
+              Verify email
+            </button>
+            <mat-hint>
+              Your account is not verified. You need to confirm your email.
+            </mat-hint>
+          </mat-form-field>
+        </div>
+        <div>
+          <mat-form-field hideRequiredMarker appearance="outline">
+            <mat-label>Phone Number</mat-label>
+            <input
+              matInput
+              formControlName="phone"
+              placeholder="Enter your phone number"
+            />
+          </mat-form-field>
+        </div>
+        @if (errorMsg.updateUser && !loading.updateUser) {
+          <mat-error>{{ errorMsg.updateUser }}</mat-error>
+        }
+        <div>
+          <button mat-flat-button [disabled]="loading.updateUser">
+            @if (loading.updateUser) {
+              <mat-spinner diameter="25"></mat-spinner>
+            } @else {
+              Save changes
+            }
+          </button>
+        </div>
+      </form>
+    </div>
+    <div class="container">
+      <div class="header">
+        <div class="icon">
+          <mat-icon fontSet="material-icons-outlined">lock</mat-icon>
+        </div>
+        <h2>Change your password</h2>
+      </div>
+      <form [formGroup]="updatePasswordForm" (submit)="changePassword()">
+        <div>
+          <mat-form-field hideRequiredMarker appearance="outline">
+            <mat-icon matPrefix> password </mat-icon>
+            <mat-label>Password</mat-label>
+            <input
+              matInput
+              type="password"
+              formControlName="password"
+              placeholder="Enter your password"
+            />
+          </mat-form-field>
+        </div>
+        <div>
+          <mat-form-field hideRequiredMarker appearance="outline">
+            <mat-icon matPrefix> password </mat-icon>
+            <mat-label>Confirm Password</mat-label>
+            <input
+              matInput
+              type="password"
+              formControlName="passwordConfirm"
+              placeholder="Re-enter your password"
+            />
+          </mat-form-field>
+        </div>
+        @if (errorMsg.updatePassword && !loading.updatePassword) {
+          <mat-error>{{ errorMsg.updatePassword }}</mat-error>
+        }
+        <div>
+          <button mat-flat-button [disabled]="loading.updatePassword">
+            @if (loading.updatePassword) {
+              <mat-spinner diameter="25"></mat-spinner>
+            } @else {
+              Change password
+            }
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+  <div class="addresses">
+    <h2>Your Addresses</h2>
+    <div class="list">
+      <div class="add-address" (click)="openAddressFormDialog()">
+        <div class="content">
+          <div class="icon">
+            <mat-icon>add</mat-icon>
+          </div>
+          <p>Add Address</p>
+        </div>
+      </div>
+      @for (address of addresses; track $index) {
+        <div
+          class="address"
+          [style]="($index + 1) % 3 == 0 ? { marginInlineStart: 0 } : {}"
+        >
+          <div class="content">
+            <p><span>Governorate: </span>{{ address.governorate }}</p>
+            <p><span>City: </span>{{ address.city }}</p>
+            <p><span>Street: </span>{{ address.street }}</p>
+            <p><span>Building number: </span>{{ address.building }}</p>
+            <p><span>Zip code: </span>{{ address.zipCode }}</p>
+          </div>
+          <div class="buttons">
+            <button mat-button (click)="openAddressFormDialog($index)">
+              Edit
+            </button>
+            <span>|</span>
+            <button mat-button (click)="removeAddress($index)">Remove</button>
+          </div>
+        </div>
+      }
+    </div>
+  </div>
+</section>

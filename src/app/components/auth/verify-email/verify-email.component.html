@@ -6,17 +6,26 @@
   <h2>Great, now verify your email</h2>
   <p>
     We've sent a verification code to your email
-    <a>yousef26hatem&#64;gmail.com</a>
+    <a>{{ userEmail }}</a>
   </p>
-  <form>
+  <form [formGroup]="form" (submit)="verifyEmail()">
     <div>
-      <mat-form-field hideRequiredMarker>
+      <mat-form-field hideRequiredMarker appearance="outline">
         <mat-label>Enter verification code</mat-label>
-        <input matInput required />
+        <input matInput formControlName="code" />
       </mat-form-field>
     </div>
+    @if (errorMsg && !loading) {
+      <mat-error>{{ errorMsg }}</mat-error>
+    }
     <div>
-      <button mat-flat-button>Submit</button>
+      <button mat-flat-button [disabled]="loading">
+        @if (loading) {
+          <mat-spinner diameter="25"></mat-spinner>
+        } @else {
+          Submit
+        }
+      </button>
     </div>
   </form>
 </section>

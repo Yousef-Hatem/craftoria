@@ -1,5 +1,9 @@
-<app-nav></app-nav>
-<app-auth-layout>
-  <router-outlet />
-</app-auth-layout>
-<app-footer></app-footer>
+@if (authLayout) {
+  <app-auth-layout>
+    <router-outlet />
+  </app-auth-layout>
+} @else {
+  <app-nav></app-nav>
+    <router-outlet />
+  <app-footer></app-footer>
+}
