@@ -28,8 +28,7 @@ export class NavComponent {
   menuItems = [
     { label: 'Home', route: '/home' },
     { label: 'Shop', route: '/shop' },
-    { label: 'Blog', route: '/blog' },
-    { label: 'Sale', route: '/sale' }
+
   ];
 
   searchQuery: string = '';
