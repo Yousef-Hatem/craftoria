@@ -1,26 +1,22 @@
 @import url("https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Shadows+Into+Light&family=Titillium+Web:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700&display=swap");
 
-body {
-  font-family: "Dancing Script", cursive;
-}
-
-.custom-font {
-  font-family: "Dancing Script", cursive ;
-  font-size: 20px;
-}
-
+/* Navbar styles */
 .navbar {
   display: flex;
   justify-content: space-between;
-  padding: 10px 20px;
-  width: 90%;
-
+  align-items: center; /* Center items vertically */
+  width: 100%;
+  max-width: 100vw; /* Ensure navbar doesn't exceed viewport width */
+  padding: 0; /* Add padding to prevent content from touching edges */
+  box-sizing: border-box; /* Include padding in width calculation */
+  font-size: 16px; /* Set a base font size for the navbar */
+  font-family: "Dancing Script", cursive;
 }
 
-/* //left section */
+/* Left section */
 .left-section {
   display: flex;
-  align-items: center;
+  align-items: center; /* Center items vertically */
 }
 
 .logo {
@@ -29,27 +25,40 @@ body {
   margin-right: 10px;
 }
 
-/* //center section */
-.center-section{
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.logo-text {
+  font-size: 24px;
+  font-weight: bold;
+  color: #8c9ae8;
 }
+
+/* Center section */
+.center-section {
+  display: flex;
+  align-items: center; /* Center items vertically */
+  justify-content: center;
+  flex-grow: 1; /* Allow center section to grow and take available space */
+  margin: 0 20px; /* Add margin to prevent overlap */
+}
+
 .center-section a {
-  margin: 0 10px;
+  margin: 0 15px; /* Adjust margin for better spacing */
   color: black;
   text-transform: uppercase;
+  font-size: 20px; /* Set a consistent font size */
   position: relative;
   display: inline-block;
+
+  text-decoration: none; /* Remove underline from links */
 }
 
 .center-section a::after {
   content: "";
   position: absolute;
-  bottom: 0;
+  bottom: 2px;
   left: 50%;
+
   width: 0;
-  height: 2px;
+  height: 3px;
   background-color: #8c9ae8;
   transition: width 0.3s ease, left 0.3s ease;
   transform: translateX(-50%);
@@ -60,99 +69,148 @@ body {
   left: 20%;
 }
 
-/* //right section */
-.right-section {
-  display: flex;
-  align-items: center;
-  gap: 20px;
-
-}
-.right-section button{
-  color: black;
-}
-.icon{
-  cursor: pointer;
-}
-
+/* Search box */
 .search-box {
   display: flex;
-  align-items: center;
+  align-items: center; /* Center items vertically */
   border: 1px solid #ccc;
-  border-radius: 20px !important;
+  border-radius: 20px;
   padding: 5px;
-  border-radius: 4px;
   transition: border-color 0.3s;
-  width: 300px;
+  width: 300px; /* Fixed width for search box */
 }
 
 .search-box:focus-within {
   border: 2px solid #99a6ef;
 }
+
 .search-input {
   border: none;
   outline: none;
-  padding-left: 30px;
+  padding-left: 10px;
   flex-grow: 1;
   background: none;
-  font-family:  "Dancing Script", cursive;
-}
-
-.search-box:hover input {
-  border-color: #2196f3;
+  font-family: "Dancing Script", cursive;
+  font-size: 14px; /* Set a consistent font size */
 }
 
 .search-icon {
   margin-right: 5px;
   cursor: pointer;
-
   transition: transform 0.5s ease-in-out;
 }
-.profile-icon, .cart-icon, .fav-icon{
-  border: 2px solid #b2deff;
-  border-radius: 50%;
-  padding: 5px;
-  background-color: #b2deff;
-  color: white;
-}
+
 .search-box:hover .search-icon {
   transform: rotate(360deg);
 }
-.login-icon,
-.cart-icon {
-  margin-left: 15px;
+
+/* Right section */
+.right-section {
+  display: flex;
+  align-items: center; /* Center items vertically */
+  gap: 15px; /* Adjust gap for better spacing */
+}
+
+.right-section button {
+  color: black;
+  font-size: 14px; /* Set a consistent font size */
+  text-transform: uppercase;
+  border: none;
+  background: none;
   cursor: pointer;
 }
-.login-icon {
-  border: 1px solid black;
-  color: rgb(33, 29, 29);
+
+/* Icons */
+.icon {
+  cursor: pointer;
+  font-size: 24px; /* Set a consistent icon size */
+}
+
+.profile-icon,
+.cart-icon,
+.fav-icon {
+  border: 2px solid #b2deff;
   border-radius: 50%;
-  padding: 4px;
-  background-color: black;
-  cursor: pointer;
-
-}
-.auth-button{
-  font-size: 20px;
-}
-.cart-icon {
-  /* border: 1px solid #2196f3; */
-
-  color: rgb(255, 255, 255);
-  border-radius: 50%;
-  padding: 4px;
-  cursor: pointer;
-  /* background: #2196f3; */
+  padding: 5px;
+  color: black;
 }
 
-
-
-
-@media screen and (min-width: 768px) and (max-width: 1024px) {
-.navbar{
-  width:90%;
+.fav-icon {
+  color: black;
 }
+
+.auth-button {
+  font-size: 14px;
+  text-transform: uppercase;
+  font-family: "Dancing Script", cursive;
+}
+
+/* Responsive styles */
+@media screen and (max-width: 1024px) {
+  .navbar {
+    padding: 0 10px; /* Reduce padding for tablets */
+  }
+
+  .center-section a {
+    font-size: 14px; /* Further reduce font size for tablets */
+    margin: 0 10px; /* Adjust margin for tablets */
+  }
+
   .search-box {
-    width: 200px;
+    width: 150px; /* Reduce search box width for tablets */
+  }
+
+  .right-section {
+    gap: 10px; /* Reduce gap between icons */
+  }
+
+  .icon {
+    font-size: 20px; /* Adjust icon size for tablets */
   }
 }
 
+@media screen and (max-width: 767px) {
+  .navbar {
+    flex-direction: column;
+    align-items: stretch;
+    padding: 10px;
+  }
+
+  .center-section {
+    order: 3;
+    margin: 10px 0;
+    /* flex-direction: column; */
+    align-items: center; /* Center items vertically */
+    justify-content: space-between;
+    gap: 5px;
+  }
+
+  .center-section a {
+    font-size: 12px;
+    margin: 5px 0;
+  }
+
+  .search-box {
+    width: 60%; /* Full width for search box on mobile */
+    margin-top: 10px;
+  }
+
+  .right-section {
+    order: 1;
+    justify-content: center;
+    margin-bottom: 10px;
+  }
+
+  .auth-button {
+    font-size: 12px;
+  }
+
+  .profile-icon,
+  .cart-icon,
+  .fav-icon {
+    display: flex;
+    align-items: center;
+    padding: 3px;
+    font-size: 19px; /* Adjust icon size for mobile */
+  }
+}
