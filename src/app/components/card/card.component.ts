@@ -4,7 +4,7 @@ import { Component } from '@angular/core';
   selector: 'app-card',
   imports: [],
   templateUrl: './card.component.html',
-  styleUrl: './card.component.scss',
+  styleUrl: './card.component.css'
 })
 export class CardComponent {
   hoverCard = false;

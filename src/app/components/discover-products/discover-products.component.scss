@@ -3,6 +3,8 @@
   padding: 30px;
   background-color: var(--primary-color);
   border-radius:100px;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+
 }
 .collection-header{
 display: flex;
@@ -60,9 +62,11 @@ align-items: center;
 
   display: flex;
   align-items: center;
-
+justify-content: center;
   gap: 40px;
   flex-wrap: wrap;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+
 }
 
 /* Card styles */

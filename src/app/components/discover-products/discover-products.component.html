@@ -35,6 +35,7 @@
           </button>
         </div>
       </div>
+
       <button class="favorite-btn" (click)="toggleFavorite(product)">
         <mat-icon [ngStyle]="{ color: product.isFavorite ? 'red' : '#bbb' }">
           {{ product.isFavorite ? "favorite" : "favorite_border" }}
