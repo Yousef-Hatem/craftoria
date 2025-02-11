@@ -1,0 +1,69 @@
+
+<h2 class="order-heading">Orders</h2>
+<table class="orders-table">
+  <thead>
+    <tr>
+      <th>Order ID</th>
+      <th>Product Details</th>
+      <th>Price ($)</th>
+      <th>Quantity</th>
+      <th>Status</th>
+      <th>Payment</th>
+      <th>Total ($)</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <ng-container *ngFor="let order of orders">
+      <tr *ngFor="let item of order.items; let itemIndex = index">
+        <!-- دمج Order ID فقط لأول منتج في الطلب -->
+        <td *ngIf="itemIndex === 0" [attr.rowspan]="order.items.length">{{ order.id }}</td>
+
+        <!-- تفاصيل المنتج -->
+        <td class="product-details text-center">
+          <img [src]="item.productImage" [alt]="item.productName" class="product-image">
+          <span>{{ item.productName }}</span>
+        </td>
+        <td>${{ item.price }}</td>
+        <td>{{ item.quantity }}</td>
+
+        <!-- حالة الطلب -->
+        <td [ngClass]="getStatusClass(order.status)" class="status">
+          <span class="status-text">{{ order.status }}</span>
+        </td>
+
+        <!-- طريقة الدفع مع الأيقونات -->
+        <td *ngIf="itemIndex === 0" [attr.rowspan]="order.items.length">
+          <div class="payment-icon">
+            <P *ngIf="order.paymentMethod === 'visa'" ><mat-icon class="blue-icon">credit_card</mat-icon>
+              VISA</P>
+            <P *ngIf="order.paymentMethod === 'cash'" ><mat-icon class="red-icon">account_balance_wallet</mat-icon>
+              CASH</P>
+          </div>
+        </td>
+
+        <!-- إجمالي السعر -->
+        <td *ngIf="itemIndex === 0" [attr.rowspan]="order.items.length">${{ order.totalPrice }}</td>
+
+        <!-- الأكشنات -->
+        <td *ngIf="itemIndex === 0" [attr.rowspan]="order.items.length">
+          <span *ngIf="order.status === 'cancelled'">_</span>
+          <span *ngIf="order.status === 'confirmed'">Confirmed</span>
+          <!-- Progress bar عند حالة "shipped" -->
+          <div *ngIf="order.status === 'shipped'">
+            <p><img src="data:image/png;base64,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" alt="" class="car"> Delivery in {{ getRemainingTime(order) }}</p>
+            <div class="progress-container">
+              <div class="progress-bar" [style.width]="getProgress(order) + '%'"></div>
+            </div>
+          </div>
+
+          <!-- زر تأكيد عند حالة "delivered" -->
+          <div *ngIf="order.status === 'delivered'">
+            <button (click)="confirmOrder(order.id)" class="confirm-btn">Confirm Receipt</button>
+
+          </div>
+        </td>
+      </tr>
+    </ng-container>
+  </tbody>
+</table>
