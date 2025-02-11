@@ -7,6 +7,7 @@ import { CartComponent } from './components/cart/cart.component';
 import { HomeComponent } from './components/home/home.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { ProductsPageComponent } from './components/products-page/products-page.component';
+import { OrdersComponent } from './components/orders/orders.component';
 
 export const routes: Routes = [
   {
@@ -36,6 +37,10 @@ export const routes: Routes = [
   {
     path: 'shop',
     component: ProductsPageComponent,
+  },
+  {
+    path: 'orders',
+    component: OrdersComponent,
   },
   {
     path: 'dashboard',
