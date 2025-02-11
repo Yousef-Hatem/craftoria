@@ -39,7 +39,7 @@ export class HomeComponent {
     );
   }
 
-  getDiscountedProducts(products: Product[], limit: number = 4): void {
+  getDiscountedProducts(products: Product[], limit: number = 5): void {
     this.discountedProducts = products.filter(
       (product, i) => product.originalPrice && i < limit,
     );
@@ -49,7 +49,7 @@ export class HomeComponent {
     this.latestProducts = products.filter((p, i) => i < limit);
   }
 
-  getOneProductPerCategory(products: Product[], limit: number = 4): void {
+  getOneProductPerCategory(products: Product[], limit: number = 5): void {
     const categories: string[] = [];
     this.oneProductPerCategory = products.filter((p, i) => {
       if (p.category && !categories.includes(p.category._id) && i < limit) {
