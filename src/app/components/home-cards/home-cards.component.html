@@ -1,0 +1,38 @@
+
+
+<section class="collection">
+  <h1 class="section-title">Our Collection</h1>
+  <div class="cards-container">
+<!--
+    <div class="card video-card">
+      <video controls>
+        <source src="../../assets/video2.mp4" type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+    </div> -->
+
+    <!-- Product Cards -->
+    <div class="card" *ngFor="let product of products">
+      <img [src]="product.image" [alt]="product.name" class="product-image" />
+      <div class="card-content">
+        <h3 class="product-name">{{ product.name }}</h3>
+        <p class="product-description">{{ product.description }}</p>
+        <div class="price-cart">
+          <span class="price">{{ product.price }}</span>
+          <button class="cart-btn" (click)="addToCart(product)">
+            <mat-icon>shopping_cart</mat-icon>
+          </button>
+        </div>
+      </div>
+      <button class="favorite-btn" (click)="toggleFavorite(product)">
+        <mat-icon [ngStyle]="{ color: product.isFavorite ? 'red' : '#bbb' }">
+          {{ product.isFavorite ? "favorite" : "favorite_border" }}
+        </mat-icon>
+      </button>
+    </div>
+
+  </div>
+</section>
+
+
+

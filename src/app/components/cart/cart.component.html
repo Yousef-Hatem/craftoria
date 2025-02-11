@@ -1,0 +1,137 @@
+<section>
+  <h1>Your Cart</h1>
+  <div class="container">
+    @if (cartItems.length) {
+      <div class="products">
+        @for (item of cartItems; track $index; let i = $index) {
+          <div class="product" [style]="i === 0 ? { border: 'none' } : {}">
+            <div class="image">
+              <img
+                [src]="
+                  'http://localhost:8000/images/products/' +
+                  item.product.images[0]
+                "
+                width="124"
+                height="124"
+                alt
+              />
+            </div>
+            <div class="content">
+              <div class="start">
+                <div>
+                  <h2>{{ item.product.title }}</h2>
+                  <p>{{ item.product.category.name }}</p>
+                </div>
+                <h3>
+                  ${{ item.product.price }}
+                  @if (item.product.originalPrice) {
+                    <span>
+                      Was: <s>${{ item.product.originalPrice }}</s>
+                    </span>
+                  }
+                </h3>
+              </div>
+              <div class="end">
+                <button mat-icon-button (click)="removeCartItem(i)">
+                  <mat-icon class="remove">delete</mat-icon>
+                </button>
+                <div class="quantity">
+                  <button
+                    mat-icon-button
+                    [disabled]="stopUpdateQuantity === i || item.quantity <= 1"
+                    (click)="updateQuantity(i, item.quantity - 1)"
+                  >
+                    <mat-icon>remove</mat-icon>
+                  </button>
+                  <p>{{ item.quantity }}</p>
+                  <button
+                    mat-icon-button
+                    [disabled]="
+                      stopUpdateQuantity === i ||
+                      item.quantity >= item.product.quantity
+                    "
+                    (click)="updateQuantity(i, item.quantity + 1)"
+                  >
+                    <mat-icon>add</mat-icon>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        }
+      </div>
+    } @else {
+      <div class="empty">
+        <img src="images/empty-cart.png" width="250" alt />
+      </div>
+    }
+    <div class="order">
+      <div class="box delivery">
+        <div class="top">
+          <h2>Delivery Address</h2>
+          <button mat-stroked-button (click)="openAddressFormDialog()">
+            <mat-icon matPrefix>add</mat-icon> Add an address
+          </button>
+        </div>
+        @if (addresses.length) {
+          <mat-form-field appearance="outline">
+            <mat-label>Delivery to</mat-label>
+            <mat-select [value]="addresses[0]._id">
+              @for (address of addresses; track $index) {
+                <mat-option [value]="address._id">
+                  {{ address.governorate }}, {{ address.city }},
+                  {{ address.street }}, {{ address.building }},
+                  {{ address.zipCode }}
+                </mat-option>
+              }
+            </mat-select>
+          </mat-form-field>
+        } @else {
+          <p>You have not added any delivery address, add one</p>
+        }
+      </div>
+      <div class="box summary">
+        <h2>Order Summary</h2>
+        <div class="details">
+          <div>
+            <p>Subtotal</p>
+            <h3>${{ subtotal | number }}</h3>
+          </div>
+          <div class="discount">
+            <p>
+              Discount ({{
+                subtotal
+                  ? "-" + ((discount / subtotal) * 100 | number: "1.0-1")
+                  : 0
+              }}%)
+            </p>
+            <h3>${{ discount | number }}</h3>
+          </div>
+          <div>
+            <p>Delivery</p>
+            <h3>$15</h3>
+          </div>
+        </div>
+        <div class="total">
+          <p>Total</p>
+          <h3>${{ total | number }}</h3>
+        </div>
+        <form>
+          <div>
+            <mat-form-field appearance="outline">
+              <mat-icon matPrefix fontSet="material-icons-outlined">
+                sell
+              </mat-icon>
+              <mat-label>Add promo code</mat-label>
+              <input matInput />
+            </mat-form-field>
+          </div>
+          <button mat-stroked-button>Apply</button>
+        </form>
+        <button mat-flat-button [disabled]="!addresses.length || !total">
+          Go to Checkout <mat-icon matPrefix>arrow_forward</mat-icon>
+        </button>
+      </div>
+    </div>
+  </div>
+</section>

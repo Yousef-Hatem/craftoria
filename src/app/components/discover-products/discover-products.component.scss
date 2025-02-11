@@ -1,0 +1,231 @@
+.collection {
+  text-align: center;
+  padding: 30px;
+  background-color: var(--primary-color);
+  border-radius:100px;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+
+}
+.collection-header{
+display: flex;
+justify-content: space-around;
+align-items: center;
+}
+
+
+.section-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+  font-size: 70px;
+  /* margin:60px 0px 60px 0px; */
+  color: #ffffff;
+  font-family: "Dancing Script", cursive;
+
+}
+
+.collection-header{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.collection-header button{
+  margin-top: 40px;
+}
+.open-store-btn {
+  display: flex;
+  align-items: center;
+  justify-content:center;
+  gap: 8px;
+  padding: 20px 30px;
+  background-color: #2196F3;
+  color: white;
+  border: 2px solid #2196F3;
+  border-radius: 30px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: transform 0.3s ease-in-out;
+
+}
+
+/* .open-store-btn:hover {
+  transform: rotate(360deg);
+} */
+
+
+
+/* Grid for cards */
+.cards-container {
+
+  display: flex;
+  align-items: center;
+justify-content: center;
+  gap: 40px;
+  flex-wrap: wrap;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+
+}
+
+/* Card styles */
+.card {
+  width: 250px;
+  height: 350px;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  padding: 15px;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s ease-in-out;
+}
+
+.discount{
+  font-size: 20px;
+  display: flex;
+
+}
+.large-card{
+  /* display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px; */
+  /* width: 250px;
+  height: 250px; */
+
+}
+
+.card:hover {
+  rotate: 3deg; /* Slight rotation */
+  scale: 1.01;
+  border: 1px solid #ffcb6a
+}
+
+
+/* Product Image */
+.product-image {
+  width: 100%;
+  height: 60%;
+  border-radius: 20px;
+  object-fit: contain;
+}
+
+/* Card Content */
+.card-content {
+  padding: 10px 0;
+  text-align: left;
+}
+
+.product-name {
+  font-size: 18px;
+  font-weight: bold;
+  margin: 5px 0;
+}
+
+.product-description {
+  font-size: 14px;
+  color: #777;
+  margin: 5px 0;
+}
+
+/* Price & Cart */
+.price-cart {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 8px;
+}
+
+.price {
+  font-size: 16px;
+  font-weight: bold;
+  color: #2196f3;
+}
+
+.cart-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 18px;
+  color: #333;
+}
+
+.cart-btn:hover {
+  color: #2196f3;
+}
+
+/* Favorite (Heart) Button */
+.favorite-btn {
+  position: absolute;
+  top: 10px;
+  right: 7px;
+  background: none;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+
+.large-card {
+  width: 400px;
+  height: 350px;
+}
+
+
+/* استايل نص الخصم */
+.discount-badge {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  background: #ff5252;
+  color: white;
+  font-size: 18px;
+  font-weight: bold;
+  padding: 8px 12px;
+  border-radius: 5px;
+  box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+
+
+
+
+
+
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+  .collection{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .cards-container{
+    justify-content: center;
+  }
+  .collection-header{
+   align-items: center;
+    }
+
+}
+
+
+
+@media screen and (max-width: 767px) {
+ .open-store-btn{
+  margin-bottom: 20px;
+ }
+  .collection-header{
+    display: flex;
+   flex-direction: column;
+    }
+
+    .section-title {
+      margin: 0;
+      padding: 0;
+    }
+}
+

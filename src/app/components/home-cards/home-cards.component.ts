@@ -1,0 +1,84 @@
+import { Component, OnInit  } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card';
+
+
+@Component({
+  selector: 'app-home-cards',
+  standalone: true,
+  imports: [CommonModule, MatIconModule, MatButtonModule, MatCardModule],
+  templateUrl: './home-cards.component.html',
+  styleUrl: './home-cards.component.css'
+})
+export class HomeCardsComponent  implements OnInit {
+  cartCount = 0; // عدد المنتجات في السلة
+
+  products = [
+    {
+      id: 1,
+      name: 'Handmade Bag',
+      description: 'A beautiful handcrafted bag.',
+      price: '$40.00',
+      image: 'data:image/jpeg;base64,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',
+      isFavorite: false
+    },
+    {
+      id: 2,
+      name: 'Wooden Art',
+      description: 'Beautiful wooden sculpture.',
+      price: '$60.00',
+      image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRoTAT8gCjIYD_GwSiOziNBmVCzpS3sKdErzA&s',
+      isFavorite: false
+    },
+    {
+      id: 3,
+      name: 'Dress',
+      description: 'Handmade Dress.',
+      price: '$25.00',
+      image: 'images (2).jfif',
+      isFavorite: false
+    },
+    {
+      id: 4,
+      name: 'Mug',
+      description: 'Handmade Mug.',
+      price: '$25.00',
+      image: '/mug.jfif',
+      isFavorite: false
+    },
+
+
+  ];
+  ngOnInit() {
+    console.log('Products:', this.products);
+    this.updateCartCount();
+  }
+
+  addToCart(product: any) {
+    let cart: any[] = JSON.parse(localStorage.getItem('cart') || '[]');
+
+    let existingProduct = cart.find(item => item.id === product.id);
+    if (existingProduct) {
+      existingProduct.quantity += 1;
+    } else {
+      cart.push({ ...product, quantity: 1 });
+    }
+
+    localStorage.setItem('cart', JSON.stringify(cart));
+    this.updateCartCount();
+
+    alert(`✅ تمت إضافة ${product.name} إلى السلة!`);
+  }
+
+  updateCartCount() {
+    let cart: any[] = JSON.parse(localStorage.getItem('cart') || '[]');
+    this.cartCount = cart.reduce((total, item) => total + item.quantity, 0);
+  }
+
+  toggleFavorite(product: any) {
+    product.isFavorite = !product.isFavorite;
+    console.log(`Product ${product.id} favorite state:`, product.isFavorite);
+  }
+}
