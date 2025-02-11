@@ -4,20 +4,26 @@
   </div>
 
   <div class="cards-container" #cardContainer>
-    <div class="product-card" *ngFor="let product of products">
-      <div class="product-image">
-        <img [src]="product.image" alt="product" />
-        <mat-icon class="icon">favorite_border</mat-icon>
+    @for (product of products; track $index) {
+      <div class="product-card">
+        <div class="product-image">
+          <img
+            [src]="'http://localhost:8000/images/products/' + product.images[0]"
+          />
+          <mat-icon class="icon">favorite_border</mat-icon>
+        </div>
+        <div class="product-info">
+          <h3 class="product-name product-title">{{ product.title }}</h3>
+          <p class="product-price">${{ product.price }}</p>
+          <button class="shop-now-btn" (click)="addToCart(product._id)">
+            Add To Cart <span>&#8594;</span>
+          </button>
+        </div>
       </div>
-      <div class="product-info">
-        <h3 class="product-name">{{ product.name }}</h3>
-        <p class="product-price">${{ product.price }}</p>
-        <button class="shop-now-btn">Shop Now <span>&#8594;</span></button>
-      </div>
-    </div>
+    }
   </div>
 
-  <div class="trending-arrows" >
+  <div class="trending-arrows">
     <button (click)="moveSlide(-2)" class="arrow-btn">&#8592;</button>
     <button (click)="moveSlide(2)" class="arrow-btn">&#8594;</button>
   </div>

@@ -70,3 +70,12 @@ app-auth-layout {
 mat-error {
   margin-bottom: 15px;
 }
+
+.product-title {
+  font-weight: 500;
+  overflow: hidden;
+  line-clamp: 2;
+  -webkit-line-clamp: 2;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+}

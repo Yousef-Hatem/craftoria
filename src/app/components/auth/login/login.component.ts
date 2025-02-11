@@ -49,7 +49,7 @@ export class LoginComponent {
         (res) => {
           this.auth.setToken(res.token);
           this.auth.setUser(res.data);
-          this.router.navigate(['/account']);
+          this.router.navigate(['/']);
         },
         (err) => {
           if (err.status !== 401) {
