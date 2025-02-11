@@ -1,0 +1,192 @@
+.dashboard {
+  padding: 20px;
+  font-family: "Dancing Script", cursive;
+  background-color: #fde9c5;
+
+  h2 {
+    text-align: center;
+    font-size: 40px;
+    margin-bottom: 20px;
+  }
+
+  .stats {
+    display: flex;
+    gap: 15px;
+    justify-content: space-around;
+    margin-bottom: 20px;
+    height: 250px;
+
+    .card {
+      padding: 10px;
+      border-radius: 10px;
+      text-align: center;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      display: flex;
+      flex-wrap: wrap;
+      flex-direction: column;
+      width: 23%;
+      height: 190px;
+      background-color: #ffffff;
+      color: rgb(0, 0, 0);
+
+      h3 {
+        font-size: 20px;
+        margin-bottom: 10px;
+      }
+
+      h1 {
+        font-size: 25px;
+        font-weight: bolder;
+        color: #6abcff;
+      }
+
+      .up {
+        color: green;
+        font-weight: bolder;
+      }
+
+      .down {
+        color: red;
+        font-weight: bolder;
+      }
+
+      #title-new-order {
+        color: white;
+      }
+
+      .date-numb {
+        color: #ffcb6a;
+      }
+
+      .date-para {
+        order: 4;
+      }
+    }
+
+    .first-card {
+      background-color: #93d0fe;
+      color: white;
+    }
+  }
+
+  canvas {
+    width: 98%;
+    max-width: 800px;
+    margin: 40px;
+    display: block;
+    height: 100px;
+  }
+
+  .canvs-parent {
+    display: flex;
+    gap: 30px;
+
+    .first-canvas {
+      height: 500px;
+      width: 40% !important;
+    }
+
+    .second-canvas {
+      display: flex;
+      width: 25%;
+      height: 20%;
+
+      h3 {
+        display: flex;
+        width: 100px;
+      }
+    }
+  }
+
+  .canvas-title {
+    text-align: center;
+    width: 100%;
+    margin-bottom: 20px;
+    font-size: 24px;
+  }
+}
+
+/* Media Queries for Tablet */
+@media (max-width: 768px) {
+  .dashboard {
+    padding: 15px;
+
+    .stats {
+      flex-wrap: wrap;
+      gap: 10px;
+      height: auto;
+
+      .card {
+        width: 48%;
+        height: auto;
+        padding: 8px;
+
+        h3 {
+          font-size: 18px;
+        }
+
+        h1 {
+          font-size: 22px;
+        }
+      }
+    }
+
+    .canvs-parent {
+      flex-direction: column;
+      gap: 20px;
+      justify-content: center;
+      align-items: center;
+      .first-canvas,
+      .second-canvas {
+        width: 70% !important;
+        height: auto;
+
+      }
+
+      .second-canvas {
+        flex-direction: column;
+        gap: 20px;
+      }
+    }
+  }
+}
+
+/* Media Queries for Phone */
+@media (max-width: 480px) {
+  .dashboard {
+    padding: 10px;
+
+    .stats {
+      flex-direction: column;
+      gap: 10px;
+
+      .card {
+        width: 100%;
+        height: auto;
+        padding: 6px;
+
+        h3 {
+          font-size: 16px;
+        }
+
+        h1 {
+          font-size: 20px;
+        }
+      }
+    }
+
+    .canvs-parent {
+      gap: 15px;
+
+      .first-canvas,
+      .second-canvas {
+        width: 100% !important;
+        height: auto;
+      }
+
+      .second-canvas {
+        gap: 15px;
+      }
+    }
+  }
+}

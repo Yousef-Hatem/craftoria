@@ -1,0 +1,55 @@
+<div class="dashboard">
+  <h2>Dashboard</h2>
+
+  <div class="stats">
+    <div class="card first-card">
+      <h3>New Orders</h3>
+      <span class="up">20% <mat-icon class="up">trending_up</mat-icon></span>
+      <h1 id="title-new-order">{{ newOrders }}K</h1>
+      <p class="date-numb">30K</p>
+      <p>{{ date }}</p>
+    </div>
+
+    <div class="card">
+      <h3>Totale Revenue</h3>
+      <span class="down">10% <mat-icon class="down">trending_down</mat-icon></span>
+      <h1>{{ totalSales | currency : "USD" }}K</h1>
+      <p class="date-numb">30K</p>
+      <p>{{ date }}</p>
+    </div>
+
+    <div class="card">
+      <h3>New Customers</h3>
+      <span class="down">40% <mat-icon class="down">trending_down</mat-icon></span>
+      <h1>{{ newCustomers }}K</h1>
+      <p class="date-numb">30K</p>
+      <p>{{ date }}</p>
+    </div>
+
+    <div class="card">
+      <h3>Pending Orders</h3>
+      <span class="up">30% <mat-icon class="up">trending_up</mat-icon></span>
+      <h1>{{ pendingOrders }}K</h1>
+      <p class="date-numb">30K</p>
+      <p>{{ date }}</p>
+    </div>
+  </div>
+
+  <!-- Charts -->
+  <div class="canvs-parent">
+
+    <div class="first-canvas">
+      <h3 class="canvas-title">Products Most Selling</h3>
+      <canvas #topSellingChart></canvas>
+    </div>
+
+
+
+    <div class="second-canvas">
+      <h3 class="canvas-title">Orders Percent</h3>
+      <canvas #orderPercentageChart></canvas>
+      <h3 class="canvas-title">Selling Analysis</h3>
+      <canvas #salesAnalysisChart></canvas>
+    </div>
+  </div>
+</div>
