@@ -74,7 +74,7 @@ export class VerifyEmailComponent {
         () => {
           this.user.verified = true;
           this.auth.setUser(this.user);
-          this.router.navigate(['/account']);
+          this.router.navigate(['/']);
         },
         (err) => {
           if (err.status !== 400) {
