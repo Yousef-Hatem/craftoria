@@ -1,46 +1,48 @@
-
 <section class="collection">
   <div class="collection-header">
     <h1 class="section-title">Discounts</h1>
-    <button
-      mat-raised-button
-      class="open-store-btn"
-      (click)="navigateTo('/shop')">
+    <button mat-raised-button class="open-store-btn" routerLink="/shop">
       <mat-icon class="cart-icon">shopping_cart</mat-icon> Open Store
     </button>
   </div>
 
   <div class="cards-container">
-
-    <div
-
-      class="card "
-      *ngFor="let product of products; let i = index"
-      [ngClass]="{ 'large-card': i === 0 }">
-      <div *ngIf="i === 0" class="discount-badge">50% Discount</div>
-      <div *ngIf="i === 1" class="discount-badge">10% Discount</div>
-      <div *ngIf="i === 2" class="discount-badge">30% Discount</div>
-      <div *ngIf="i === 3" class="discount-badge">20% Discount</div>
-
-
-
-      <img [src]="product.image" [alt]="product.name" class="product-image" />
-      <div class="card-content">
-        <h3 class="product-name">{{ product.name }}</h3>
-        <p class="product-description">{{ product.description }}</p>
-        <div class="price-cart">
-          <span class="price">{{ product.price }}</span>
-          <button class="cart-btn">
-            <mat-icon>shopping_cart</mat-icon>
-          </button>
+    @for (product of products; track $index; let i = $index) {
+      <div class="card" [class]="{ 'large-card': i === 0 }">
+        @if (product.originalPrice) {
+          <div class="discount-badge">
+            {{
+              (product.price / product.originalPrice) * 100 | number: "1.0-1"
+            }}% Discount
+          </div>
+        }
+        <img
+          [src]="'http://localhost:8000/images/products/' + product.images[0]"
+          alt
+          class="product-image"
+        />
+        <div class="card-content">
+          <h3 class="product-name product-title">{{ product.title }}</h3>
+          <p class="product-description">{{ product.category.name }}</p>
+          <div class="price-cart">
+            <span class="price"
+              >{{ product.price }}
+              <span>
+                Was: <s>${{ product.originalPrice }}</s>
+              </span>
+            </span>
+            <button class="cart-btn" (click)="addToCart(product._id)">
+              <mat-icon>shopping_cart</mat-icon>
+            </button>
+          </div>
         </div>
-      </div>
 
-      <button class="favorite-btn" (click)="toggleFavorite(product)">
-        <mat-icon [ngStyle]="{ color: product.isFavorite ? 'red' : '#bbb' }">
-          {{ product.isFavorite ? "favorite" : "favorite_border" }}
-        </mat-icon>
-      </button>
-    </div>
+        <button class="favorite-btn" (click)="toggleFavorite(i)">
+          <mat-icon [style]="{ color: favorites.includes(i) ? 'red' : '#bbb' }">
+            {{ favorites.includes(i) ? "favorite" : "favorite_border" }}
+          </mat-icon>
+        </button>
+      </div>
+    }
   </div>
 </section>

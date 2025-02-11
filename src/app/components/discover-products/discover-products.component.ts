@@ -1,60 +1,41 @@
-import { Component } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { Component, inject, Input } from '@angular/core';
+import { CommonModule, DecimalPipe } from '@angular/common';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
-
+import { Product } from '../../interfaces/product';
+import { RouterLink } from '@angular/router';
+import { CartService } from '../../services/cart.service';
 
 @Component({
   selector: 'app-discover-products',
   standalone: true,
-  imports: [CommonModule, MatIconModule, MatButtonModule, MatCardModule],
+  imports: [
+    RouterLink,
+    MatIconModule,
+    MatButtonModule,
+    MatCardModule,
+    DecimalPipe,
+  ],
   templateUrl: './discover-products.component.html',
-  styleUrl: './discover-products.component.css'
+  styleUrl: './discover-products.component.scss',
 })
 export class DiscoverProductsComponent {
+  cartService = inject(CartService);
+  @Input() products: Product[] = [];
+  favorites: number[] = [];
 
-  products = [
-    {
-      id: 1,
-      name: 'Handmade Bag',
-      description: 'A beautiful handcrafted bag.',
-      price: '$40.00',
-      image: '/handemadebage.jpg',
-      isFavorite: false
-    },
-    {
-      id: 2,
-      name: 'Wooden Art',
-      description: 'Beautiful wooden sculpture.',
-      price: '$60.00',
-      image: '/wodenart.jfif',
-      isFavorite: false
-    },
-    {
-      id: 3,
-      name: 'Accessories',
-      description: 'Handmade Accessories.',
-      price: '$25.00',
-      image: '/acsess2.png',
-      isFavorite: false
-    },
-    {
-      id: 3,
-      name: 'Children Dress',
-      description: 'Handmade Dress.',
-      price: '$25.00',
-      image: '/dress1.jfif',
-      isFavorite: false
-    },
-
-  ];
-
-  toggleFavorite(product: any) {
-    product.isFavorite = !product.isFavorite;
-    console.log(`Product ${product.id} favorite state:`, product.isFavorite);
+  toggleFavorite(index: number) {
+    if (this.favorites.includes(index)) {
+      this.favorites.filter((f) => f !== index);
+    } else {
+      this.favorites.push(index);
+    }
   }
-  navigateTo(route: string): void {
-    console.log('Navigating to:', route);
+
+  addToCart(productId: string): void {
+    this.cartService.addProductToCart(productId).subscribe(undefined, (err) => {
+      console.log(err);
+    });
   }
 }
