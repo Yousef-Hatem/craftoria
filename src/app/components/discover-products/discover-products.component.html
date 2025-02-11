@@ -12,7 +12,8 @@
         @if (product.originalPrice) {
           <div class="discount-badge">
             {{
-              (product.price / product.originalPrice) * 100 | number: "1.0-1"
+              (product.price / product.originalPrice - 1) * -100
+                | number: "1.0-1"
             }}% Discount
           </div>
         }
