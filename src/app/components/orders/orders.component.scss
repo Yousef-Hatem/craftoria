@@ -1,0 +1,158 @@
+
+.order-heading {
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 40px;
+    font-family: "Dancing Script", cursive;
+  }
+
+  .orders-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    font-family: "Dancing Script", cursive;
+  }
+
+  .orders-table th,
+  .orders-table td {
+    padding: 12px;
+    border: 1px solid #ddd;
+    text-align: center;
+  }
+
+  .orders-table thead {
+    background-color: #f9b942;
+    color: white;
+  }
+
+  .orders-table tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+
+  /* تحسين تنسيق المنتج */
+  .product-details {
+    /* display: flex;
+    align-items: center;
+     */
+  overflow: hidden;
+    gap: 10px;
+  }
+
+  .product-image {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    border:px solid white;
+    border-radius: 50%;
+    line-height: 100%;
+    float: left;
+  }
+
+  /* تخصيص الألوان حسب الحالة */
+  .status .status-text {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    font-weight: bold;
+  }
+  .text-center{
+    text-align: center;
+  }
+  /*
+  .status .status-text.pending { color: #ffc107; }
+  .status .status-text.shipped { color: #33b9cd; }
+  .status-text.delivered { background-color: #16ab39; color: white; }
+  .status-text.confirmed { background-color: #3dd162; color: white; }
+  .status-text.cancelled { background-color: #dc3545; color: white; } */
+
+  .progress-container {
+    width: 100%;
+    height: 10px;
+    background-color: #e0e0e0;
+    border-radius: 5px;
+    overflow: hidden;
+    margin-top: 5px;
+  }
+
+  .progress-bar {
+    height: 100%;
+    background-color: #007bff;
+    transition: width 0.5s ease-in-out;
+  }
+
+  .confirm-btn {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    width:140px;
+    height: 35px;
+    padding: 30px 10px;
+    border-radius: 25px;
+    cursor: pointer;
+  }
+
+  .confirm-btn:hover {
+    background-color: #218838;
+  }
+
+  /* تنسيق الأيقونات */
+  .payment-icon img {
+    width: 30px;
+    height: auto;
+  }
+
+
+
+  .status span {
+    font-weight: bold;
+    padding: 2px 5px;
+  }
+
+  .status-confirmed{
+    color: #f9b942;
+  }
+
+  .status-shipped {
+    color: rgb(0, 128, 255);
+  }
+
+  .status-delivered {
+    color: green;
+  }
+
+  .status-cancelled {
+    color: red;
+  }
+
+
+  /* تنسيق زر التأكيد */
+  .confirm-btn {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
+  .confirm-btn:hover {
+    background-color: #218838;
+  }
+
+  .red-icon {
+    color: red;
+  }
+
+  .blue-icon {
+    color: blue;
+  }
+  .car {
+    width: 50px;
+    height: 50px;
+  }
+
+
+
