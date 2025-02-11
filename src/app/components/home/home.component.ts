@@ -7,6 +7,7 @@ import { TrendingComponent } from '../trending/trending.component';
 import { Product } from '../../interfaces/product';
 import { ProductService } from '../../services/product.service';
 import { CartService } from '../../services/cart.service';
+import { BestSellingComponent } from '../best-selling/best-selling.component';
 
 @Component({
   selector: 'app-home',
@@ -16,6 +17,7 @@ import { CartService } from '../../services/cart.service';
     DeliveryCartComponent,
     DiscoverProductsComponent,
     TrendingComponent,
+    BestSellingComponent,
   ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss',
