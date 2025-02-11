@@ -4,6 +4,8 @@ import { AuthLayoutComponent } from './components/auth/auth-layout/auth-layout.c
 import { NavComponent } from './components/nav/nav.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { OrdersComponent } from "./components/orders/orders.component";
+
 
 @Component({
   selector: 'app-root',
@@ -13,12 +15,14 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
     NavComponent,
     FooterComponent,
     DashboardComponent,
-  ],
+    OrdersComponent
+],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
 })
 export class AppComponent {
-  authLayout: boolean = false;
+  title = 'pureCrafts';
+    authLayout: boolean = false;
 
   constructor(private router: Router) {
     this.router.events.subscribe((event) => {
