@@ -11,6 +11,7 @@ import { FooterComponent } from './components/footer/footer.component';
   styleUrl: './app.component.scss',
 })
 export class AppComponent {
+  title = 'pureCrafts';
   authLayout: boolean = false;
 
   constructor(private router: Router) {
