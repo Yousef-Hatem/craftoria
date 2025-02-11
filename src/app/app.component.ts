@@ -3,26 +3,16 @@ import { Router, RouterOutlet } from '@angular/router';
 import { AuthLayoutComponent } from './components/auth/auth-layout/auth-layout.component';
 import { NavComponent } from './components/nav/nav.component';
 import { FooterComponent } from './components/footer/footer.component';
-import { DashboardComponent } from './components/dashboard/dashboard.component';
-import { OrdersComponent } from "./components/orders/orders.component";
-
 
 @Component({
   selector: 'app-root',
-  imports: [
-    RouterOutlet,
-    AuthLayoutComponent,
-    NavComponent,
-    FooterComponent,
-    DashboardComponent,
-    OrdersComponent
-],
+  imports: [RouterOutlet, AuthLayoutComponent, NavComponent, FooterComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
 })
 export class AppComponent {
   title = 'pureCrafts';
-    authLayout: boolean = false;
+  authLayout: boolean = false;
 
   constructor(private router: Router) {
     this.router.events.subscribe((event) => {

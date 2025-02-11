@@ -1,10 +1,11 @@
 import { ProductService } from './../../services/product.service';
 import { Component } from '@angular/core';
 import { Product } from '../../interfaces/product';
+import { DecimalPipe } from '@angular/common';
 
 @Component({
   selector: 'app-products-page',
-  imports: [],
+  imports: [DecimalPipe],
   templateUrl: './products-page.component.html',
   styleUrl: './products-page.component.scss',
 })

@@ -1,5 +1,5 @@
 export interface Order {
-  id: number;
+  id: number;  
   customerName: string;
   items: OrderItem[];
   totalPrice: number;

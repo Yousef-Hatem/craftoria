@@ -43,7 +43,14 @@
         <div class="col-md-3">
           <div class="card">
             <div class="card-main">
-              <div class="discount">-9%</div>
+              @if (product.originalPrice) {
+                <div class="discount">
+                  {{
+                    (product.price / product.originalPrice - 1) * 100
+                      | number: "1.0-0"
+                  }}%
+                </div>
+              }
               <div class="label label-green">pre-order</div>
               <div class="product-container">
                 @for (image of product.images; track $index) {
