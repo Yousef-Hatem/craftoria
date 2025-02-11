@@ -3,10 +3,17 @@ import { Router, RouterOutlet } from '@angular/router';
 import { AuthLayoutComponent } from './components/auth/auth-layout/auth-layout.component';
 import { NavComponent } from './components/nav/nav.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, AuthLayoutComponent, NavComponent, FooterComponent],
+  imports: [
+    RouterOutlet,
+    AuthLayoutComponent,
+    NavComponent,
+    FooterComponent,
+    DashboardComponent,
+  ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
 })
