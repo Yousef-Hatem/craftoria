@@ -5,6 +5,8 @@ import { VerifyEmailComponent } from './components/auth/verify-email/verify-emai
 import { AccountComponent } from './components/account/account.component';
 import { CartComponent } from './components/cart/cart.component';
 import { HomeComponent } from './components/home/home.component';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { ProductsPageComponent } from './components/products-page/products-page.component';
 
 export const routes: Routes = [
   {
@@ -30,5 +32,13 @@ export const routes: Routes = [
   {
     path: 'cart',
     component: CartComponent,
+  },
+  {
+    path: 'shop',
+    component: ProductsPageComponent,
+  },
+  {
+    path: 'dashboard',
+    component: DashboardComponent,
   },
 ];
