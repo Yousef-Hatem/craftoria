@@ -1,0 +1,48 @@
+/* product-form.component.scss */
+.product-form {
+    width: 100%;
+    
+    .form-container {
+      display: flex;
+      gap: 2rem;
+      padding: 1rem 0;
+  
+      .image-section {
+        flex: 1;
+        max-width: 300px;
+  
+        .image-preview {
+          margin-bottom: 1rem;
+          border: 1px solid #ddd;
+          border-radius: 4px;
+          padding: 0.5rem;
+          background: #f5f5f5;
+          
+          img {
+            width: 100%;
+            height: auto;
+            max-height: 200px;
+            object-fit: contain;
+          }
+        }
+      }
+  
+      .details-section {
+        flex: 2;
+        
+        .row {
+          display: flex;
+          gap: 1rem;
+          
+          .half-width {
+            flex: 1;
+          }
+        }
+      }
+    }
+  
+    mat-form-field {
+      width: 100%;
+      margin-bottom: 1rem;
+    }
+  }
