@@ -15,7 +15,7 @@
         <div class="product-info">
           <h3 class="product-name product-title">{{ product.title }}</h3>
           <p class="product-price">${{ product.price }}</p>
-          <button class="shop-now-btn" (click)="addToCart(product._id)">
+          <button class="shop-now-btn" (click)="addToCart.emit(product._id)">
             Add To Cart <span>&#8594;</span>
           </button>
         </div>

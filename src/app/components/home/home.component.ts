@@ -8,6 +8,7 @@ import { Product } from '../../interfaces/product';
 import { ProductService } from '../../services/product.service';
 import { CartService } from '../../services/cart.service';
 import { BestSellingComponent } from '../best-selling/best-selling.component';
+import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-home',
@@ -18,13 +19,16 @@ import { BestSellingComponent } from '../best-selling/best-selling.component';
     DiscoverProductsComponent,
     TrendingComponent,
     BestSellingComponent,
+    MatSnackBarModule,
   ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss',
 })
 export class HomeComponent {
-  cartService = inject(CartService);
-  productService = inject(ProductService);
+  private _snackBar = inject(MatSnackBar);
+  private cartService = inject(CartService);
+  private productService = inject(ProductService);
+
   oneProductPerCategory: Product[] = [];
   discountedProducts: Product[] = [];
   latestProducts: Product[] = [];
@@ -62,8 +66,20 @@ export class HomeComponent {
     });
   }
 
-  addToCart(productId: string): void {
-    console.log(productId);
-    // this.cartService.addProductToCart(productId)
+  addToCart(productId: any): void {
+    this.cartService.addProductToCart(productId).subscribe(
+      (cart) => {
+        const { length } = cart.data;
+        this._snackBar.open(
+          `Product added to your cart. You now have ${length} products`,
+          'OK',
+          { duration: 5000 },
+        );
+        this.cartService.countOfItems.set(length);
+      },
+      (err) => {
+        console.log(err);
+      },
+    );
   }
 }

@@ -22,7 +22,7 @@
           <p class="product-description">{{ product.category.name }}</p>
           <div class="price-cart">
             <span class="price">{{ product.price }}</span>
-            <button class="cart-btn" (click)="addToCart(product._id)">
+            <button class="cart-btn" (click)="addToCart.emit(product._id)">
               <mat-icon>shopping_cart</mat-icon>
             </button>
           </div>

@@ -22,9 +22,14 @@
 <section class="valentines-section">
   <h2>Thoughtful Valentine's Day gifts for every love in your life!</h2>
   <div class="card-container">
-    <div *ngFor="let card of cards" class="card-sec2">
-      <img [src]="card.image" alt="{{ card.category }}" />
-      <div class="overlay">{{ card.category }}</div>
-    </div>
+    @for (category of categories; track $index) {
+      <div class="card-sec2">
+        <img
+          [src]="'http://localhost:8000/images/categories/' + category.image"
+          alt
+        />
+        <div class="overlay">{{ category.name }}</div>
+      </div>
+    }
   </div>
 </section>

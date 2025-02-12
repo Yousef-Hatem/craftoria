@@ -1,7 +1,13 @@
-import { Component, ElementRef, ViewChild, Input, inject } from '@angular/core';
+import {
+  Component,
+  ElementRef,
+  ViewChild,
+  Input,
+  Output,
+  EventEmitter,
+} from '@angular/core';
 import { MatIconModule } from '@angular/material/icon';
 import { Product } from '../../interfaces/product';
-import { CartService } from '../../services/cart.service';
 
 @Component({
   selector: 'app-trending',
@@ -11,7 +17,7 @@ import { CartService } from '../../services/cart.service';
   styleUrl: './trending.component.scss',
 })
 export class TrendingComponent {
-  cartService = inject(CartService);
+  @Output() addToCart = new EventEmitter<string>();
   @Input() products: Product[] = [];
   @ViewChild('cardContainer') cardContainer!: ElementRef;
 
@@ -27,11 +33,5 @@ export class TrendingComponent {
     const scrollAmount = cardWidth + gap;
 
     container.scrollBy({ left: direction * scrollAmount, behavior: 'smooth' });
-  }
-
-  addToCart(productId: string): void {
-    this.cartService.addProductToCart(productId).subscribe(undefined, (err) => {
-      console.log(err);
-    });
   }
 }

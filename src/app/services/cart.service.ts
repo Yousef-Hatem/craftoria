@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { Injectable, signal } from '@angular/core';
 import { Observable } from 'rxjs';
 import { CartItem } from '../interfaces/cart-item';
 import { environment } from '../../environments/environment';
@@ -8,6 +8,8 @@ import { environment } from '../../environments/environment';
   providedIn: 'root',
 })
 export class CartService {
+  countOfItems = signal(0);
+
   constructor(private http: HttpClient) {}
 
   getLoggedUserCart(): Observable<{ data: CartItem[] }> {

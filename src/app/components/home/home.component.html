@@ -1,8 +1,14 @@
 <section>
   <app-home-page />
-  <app-home-cards [products]="oneProductPerCategory" />
+  <app-home-cards
+    [products]="oneProductPerCategory"
+    (addToCart)="addToCart($event)"
+  />
   <app-delivery-cart />
-  <app-discover-products [products]="discountedProducts" />
-  <app-trending [products]="latestProducts" />
+  <app-discover-products
+    [products]="discountedProducts"
+    (addToCart)="addToCart($event)"
+  />
+  <app-trending [products]="latestProducts" (addToCart)="addToCart($event)" />
   <app-best-selling />
 </section>

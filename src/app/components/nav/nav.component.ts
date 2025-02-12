@@ -28,7 +28,7 @@ import { AuthService } from '../../services/auth.service';
   styleUrl: './nav.component.scss',
 })
 export class NavComponent {
-  private cartService = inject(CartService);
+  cartService = inject(CartService);
   auth = inject(AuthService);
 
   menuItems = [
@@ -37,13 +37,12 @@ export class NavComponent {
   ];
   searchQuery: string = '';
   isOrdersVisible: boolean = false;
-  countOfCartItems: number = 0;
 
   ngOnInit(): void {
     if (this.auth.isLoggedIn()) {
       this.cartService.getLoggedUserCart().subscribe(
         (cart) => {
-          this.countOfCartItems = cart.data.length;
+          this.cartService.countOfItems.set(cart.data.length);
         },
         (err) => console.log(err),
       );

@@ -35,7 +35,9 @@
     <button
       mat-icon-button
       routerLink="/cart"
-      [matBadge]="countOfCartItems ? countOfCartItems : undefined"
+      [matBadge]="
+        cartService.countOfItems() ? cartService.countOfItems() : undefined
+      "
     >
       <mat-icon fontSet="material-icons-outlined">shopping_cart</mat-icon>
     </button>

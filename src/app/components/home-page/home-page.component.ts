@@ -1,8 +1,10 @@
-import { Component, HostListener } from '@angular/core';
+import { Component, HostListener, inject } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
 import { CommonModule } from '@angular/common';
+import { Category } from '../../interfaces/category';
+import { CategoryService } from '../../services/category.service';
 
 @Component({
   selector: 'app-home-page',
@@ -12,11 +14,23 @@ import { CommonModule } from '@angular/common';
   styleUrls: ['./home-page.component.scss'],
 })
 export class HomePageComponent {
+  private categoryService = inject(CategoryService);
+  categories: Category[] = [];
+
   products = [
     { image: '/bg1.jpg' },
     { image: '/bg2.jpg' },
     { image: '/bg3.jpg' },
   ];
+
+  ngOnInit(): void {
+    this.categoryService.getCategories().subscribe(
+      (categories) => {
+        this.categories = categories.data;
+      },
+      (err) => console.log(err),
+    );
+  }
 
   trackByFn(index: number, item: any): number {
     return item.id; // استخدام ID العنصر كمفتاح تتبع
@@ -48,11 +62,4 @@ export class HomePageComponent {
   }
 
   selectedCategory: string = 'Category will be displayed here!';
-
-  cards = [
-    { category: 'Hats', image: '/hat.jfif' },
-    { category: 'Decore', image: '/decor.jfif' },
-    { category: 'accessories', image: '/acssess.jpg' },
-    { category: 'Bags', image: '/bags.jpg' },
-  ];
 }

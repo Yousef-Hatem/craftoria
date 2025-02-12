@@ -1,4 +1,4 @@
-import { Component, inject, Input, Output } from '@angular/core';
+import { Component, EventEmitter, inject, Input, Output } from '@angular/core';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
@@ -13,6 +13,7 @@ import { CartService } from '../../services/cart.service';
   styleUrl: './home-cards.component.scss',
 })
 export class HomeCardsComponent {
+  @Output() addToCart = new EventEmitter<string>();
   cartService = inject(CartService);
   @Input() products: Product[] = [];
 
@@ -24,11 +25,5 @@ export class HomeCardsComponent {
     } else {
       this.favorites.push(index);
     }
-  }
-
-  addToCart(productId: string): void {
-    this.cartService.addProductToCart(productId).subscribe(undefined, (err) => {
-      console.log(err);
-    });
   }
 }
