@@ -9,4 +9,5 @@ import { Component, Input } from '@angular/core';
 export class LogoComponent {
   @Input() height: number = 40;
   @Input() fill: string = '';
+  @Input() background: string = '#ffffff';
 }
