@@ -8,6 +8,9 @@ import { HomeComponent } from './components/home/home.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { ProductsPageComponent } from './components/products-page/products-page.component';
 import { OrdersComponent } from './components/orders/orders.component';
+import { ProductDetailsComponent } from './components/product-details/product-details.component';
+import { FavoriteProductsComponent  } from './components/favorite-products/favorite-products.component';
+
 
 export const routes: Routes = [
   {
@@ -46,4 +49,11 @@ export const routes: Routes = [
     path: 'dashboard',
     component: DashboardComponent,
   },
+  { path: 'product-details', 
+    component: ProductDetailsComponent },
+
+  { path: 'favorites',
+     component: FavoriteProductsComponent  },
+
+
 ];
