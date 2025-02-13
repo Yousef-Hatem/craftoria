@@ -3,13 +3,13 @@
 
 body {
     font-family: Arial, sans-serif;
-    background-color: #b2ebf2; 
+    background-color: #4695f0; 
     margin: 0;
     padding: 20px;
 }
 
 .everything{
-    background-color: #b2ebf2;
+    background-color: #ADD8E6;
     border: none;
     border-radius: 30px;
     padding-top: 20px;
@@ -93,7 +93,7 @@ h1 {
     top: 15px;
     right: 15px;
     cursor: pointer;
-    color: #ff4757; 
+    color: #111010; 
 }
 
 .product-title {
@@ -109,7 +109,7 @@ h1 {
 }
 
 .price {
-    color: #ff0000; 
+    color: rgb(73, 71, 71); 
     text-decoration: line-through;
     margin-right: 10px;
 }
