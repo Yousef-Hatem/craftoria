@@ -7,9 +7,9 @@ import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, AuthLayoutComponent, NavComponent, FooterComponent, CommonModule],  
+  imports: [RouterOutlet, AuthLayoutComponent, NavComponent, FooterComponent],  
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss'],
+  styleUrl: './app.component.scss',
 })
 export class AppComponent {
   title = 'pureCrafts';
