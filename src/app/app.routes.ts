@@ -11,7 +11,6 @@ import { OrdersComponent } from './components/orders/orders.component';
 import { ProductDetailsComponent } from './components/product-details/product-details.component';
 import { FavoriteProductsComponent  } from './components/favorite-products/favorite-products.component';
 
-
 export const routes: Routes = [
   {
     path: '',
@@ -42,18 +41,19 @@ export const routes: Routes = [
     component: ProductsPageComponent,
   },
   {
+    path: 'product-details',
+    component: ProductDetailsComponent
+  },
+  {
     path: 'orders',
     component: OrdersComponent,
+  },
+  {
+    path: 'favorites',
+     component: FavoriteProductsComponent
   },
   {
     path: 'dashboard',
     component: DashboardComponent,
   },
-  { path: 'product-details', 
-    component: ProductDetailsComponent },
-
-  { path: 'favorites',
-     component: FavoriteProductsComponent  },
-
-
 ];
