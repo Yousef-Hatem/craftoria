@@ -1,0 +1,27 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+
+<div class="everything">
+<h1>My Favorites</h1>
+<div class="container">
+  <div class="product-card" *ngFor="let product of products">
+    <div class="discount-badge">{{ product.discount }}</div>
+    
+
+    <i class="fa-solid fa-heart" [ngClass]="{'fa-solid fa-heart': product.isFavorite, 'far fa-heart': !product.isFavorite}" (click)="toggleFavorite(product)" class="favorite-icon"></i>
+
+    
+    <img [src]="product.imageUrl" alt="{{ product.title }}" class="product-image">
+
+    <h2 class="product-title">{{ product.title }}</h2>
+    <div class="price-container">
+      <p class="current-price">{{ product.newPrice | currency }}</p>
+      <p class="price">{{ product.oldPrice | currency }}</p>
+    </div>
+    <i class="fas fa-shopping-cart buy-icon" (mouseover)="rotateIcon($event)" (mouseout)="resetIcon($event)"></i>
+  </div>
+</div>
+<button class="back-button" (click)="goBack()">
+    <i class="fas fa-arrow-left"></i>
+</button>
+</div>
