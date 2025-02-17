@@ -33,18 +33,9 @@
   margin-top: 40px;
 }
 .open-store-btn {
-  display: flex;
-  align-items: center;
-  justify-content: center;
   gap: 8px;
-  padding: 20px 30px;
-  background-color: #2196f3;
-  color: white;
-  border: 2px solid #2196f3;
-  border-radius: 30px;
+  padding: 22px 32px;
   font-size: 16px;
-  cursor: pointer;
-  transition: transform 0.3s ease-in-out;
 }
 
 /* .open-store-btn:hover {
@@ -131,7 +122,7 @@
 .price {
   font-size: 16px;
   font-weight: bold;
-  color: #2196f3;
+  color: var(--mat-sys-surface-tint);
   span {
     font-size: 14px;
     color: #0009;
@@ -147,7 +138,7 @@
 }
 
 .cart-btn:hover {
-  color: #2196f3;
+  color: var(--mat-sys-surface-tint);
 }
 
 /* Favorite (Heart) Button */
