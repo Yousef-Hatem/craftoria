@@ -18,6 +18,9 @@
 .left-section {
   display: flex;
   align-items: center; /* Center items vertically */
+  app-logo {
+    cursor: pointer;
+  }
 }
 
 .logo {
