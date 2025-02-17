@@ -128,8 +128,19 @@
           </div>
           <button mat-stroked-button>Apply</button>
         </form>
-        <button mat-flat-button [disabled]="!addresses.length || !total">
-          Go to Checkout <mat-icon matPrefix>arrow_forward</mat-icon>
+        <button
+          mat-flat-button
+          [disabled]="!addresses.length || !total || checkoutLoading"
+          (click)="checkout()"
+        >
+          @if (checkoutLoading) {
+            <mat-spinner diameter="25"></mat-spinner>
+          } @else {
+            Go to Checkout
+          }
+          @if (!checkoutLoading) {
+            <mat-icon matPrefix>arrow_forward</mat-icon>
+          }
         </button>
       </div>
     </div>

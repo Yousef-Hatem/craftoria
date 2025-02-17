@@ -12,6 +12,7 @@ import { CartService } from '../../services/cart.service';
 import { CartItem } from '../../interfaces/cart-item';
 import { AuthService } from '../../services/auth.service';
 import { DecimalPipe } from '@angular/common';
+import { OrderService } from '../../services/order.service';
 
 @Component({
   selector: 'app-cart',
@@ -34,7 +35,9 @@ export class CartComponent {
   readonly dialog = inject(MatDialog);
   readonly auth = inject(AuthService);
   readonly cartService = inject(CartService);
+  readonly orderService = inject(OrderService);
 
+  checkoutLoading: boolean = false;
   stopUpdateQuantity: number | null = null;
   cartItems: CartItem[] = [];
   addresses = [
@@ -136,5 +139,15 @@ export class CartComponent {
       .subscribe((result) =>
         result !== undefined ? this.addresses.push(result) : '',
       );
+  }
+
+  checkout(): void {
+    this.checkoutLoading = true;
+    this.orderService.checkoutSession('67ad83d100164096ccc1ccd8').subscribe(
+      (res) => {
+        window.location.href = res.session.url;
+      },
+      (err) => console.log(err),
+    );
   }
 }
